@@ -24,7 +24,7 @@ def printandlogTuple(tuple):
 #os.getcwd()
 
 print("A sound will be produced at the end of the processing.")
-print("What follows is also logged into the file logParse.txt\r\n")
+print("What follows is also logged at the end of the file logParse.txt\r\n")
 print('Press <ctrl>+C to abort')
 printandlog("########################################")
 
@@ -62,13 +62,13 @@ for dirName, subdirList, fileList in os.walk(rootDir):
           printandlog(' ')
         except MemoryError:
           f.close()
-          printandlog('--->>> **********convertion to pdf failed by lack of memory???**********')
+          printandlog('--->>> **********conversion to pdf failed by lack of memory???**********')
           newFailedFilesTuple = (outfile+'  ',);
           failedFiles = failedFiles + newFailedFilesTuple
           failedfilesCount = failedfilesCount+1
         except img2pdf.ImageOpenError:
           f.close()
-          printandlog('--->>> convertion to pdf failed due to a bad jpeg file format???')
+          printandlog('--->>> **********conversion to pdf failed due to a bad jpeg file format???**********')
           newFailedFilesTuple = (outfile+'  ',);
           failedFiles = failedFiles + newFailedFilesTuple
           failedfilesCount = failedfilesCount+1
