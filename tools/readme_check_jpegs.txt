@@ -11,7 +11,8 @@ PRELIMINARY
 ACTION
  * It recursively parses sub directories for .jpeg and .jpg file
  * It quickly checks that the files are not corrupted.
-
+ * This tool takes no irreversible action. It changes no file to the file tree. 
+ 
 USE
  * Copy 'check_jpegs.py' to the root directory of your file three.
 
@@ -32,7 +33,7 @@ PRELIMINAIRE
 ACTION
  * Traverse récursivement l'arborescence de fichiers à la recherche de .jpeg et .jpg
  * Détecte rapidement les fichiers corrompus.
-
+ * Cet outil ne réalise aucune action irreversible. Il ne change aucun fichier. 
 
 USAGE 
  * Copier 'check_jpegs.py' dans le répertoire racine de votre arborescence de fichiers.

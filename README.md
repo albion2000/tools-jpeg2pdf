@@ -1,11 +1,10 @@
 # tools-jpeg2pdf
 
+The primary source code repository for these tools is https://github.com/albion2000/tools-jpeg2pdf
+
 Tools to help massive conversions from page scans to pdf documents ready for ocr using tools like Adobe Acrobat DC
 
-They are functional, tested on about 8000 pages, special cases will probably happen to you. 
-
-Please report.
-
+They are functional, tested on about 8000 pages, special cases will probably happen to you. Please report in case of problems.
 
 One purpose is to keep the tools as simple as possible (KISS), refraining from feature creep. It might be better to create a new derived tool instead of crippling the current tool.
 
@@ -39,5 +38,7 @@ Copy 'scandir2pdf.py' to the root directory of your file tree.
 It recursively parses sub directories for .jpeg and .jpg file 
 
 For each directory X, the tool scandir2pdf regroups the image files in a file named X.pdf. And moves it to the upper stage in the file tree.
+
+It is built upon img2pdf, which ensures no jpeg recompression and the best possible quality.
 
 Logs progress, errors and final report in the console and in the file "logParse.txt"
