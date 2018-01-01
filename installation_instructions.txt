@@ -14,7 +14,7 @@ Tested on python 3.6.2
 install python 3.6.2 or 3.6.4 preferably 64 bits version (32 bits version has memory limitations)
 https://www.python.org/downloads/release/python-362/
 https://www.python.org/downloads/release/python-363/
-read the "notes on this release" chapter, it has hints oabout wha you should do
+read the "notes on this release" chapter, it has hints about what you should do
 
 Recommended installer for windows 64 bits (INTEL or AMD processors): 
 
@@ -48,7 +48,7 @@ processeur 64 bits.
 
 Certains outils, ont été écrit en langage de script Python.
 
-Pour qu'ils puissent être utilisés, vous devez intaller Python sur votre ordinateur.
+Pour qu'ils puissent être utilisés, vous devez installer Python sur votre ordinateur.
 
 Pour windows, avec un PC équipé d'un processeur 64 bits (INTEL/AMD) : 
 https://www.python.org/ftp/python/3.6.2/python-3.6.2-amd64.exe
@@ -63,7 +63,7 @@ IMPORTANT : à la dernière étape de l'installation, cliquer sur "Disable path len
 
 Ensuite, il faut effectuer deux commandes.
 
-Sous windows : dans la bare de recherche, tapez 'cmd' enter
+Sous windows : dans la barre de recherche, tapez 'cmd' enter
 
 cela ouvre une fenêtre de commande noire.
 
