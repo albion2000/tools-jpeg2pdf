@@ -1,0 +1,83 @@
+DATE jan 2018
+==========================================================================
+
+ENGLISH HERE, FRENCH IS BELOW
+
+environment needed : 
+
+Some of the tools were written in the Python script language. 
+
+For them to run, you need to install Python on your computer. (Windows/MAC/Linux)
+
+Tested on python 3.6.2
+
+install python 3.6.2 or 3.6.4 preferably 64 bits version (32 bits version has memory limitations)
+https://www.python.org/downloads/release/python-362/
+https://www.python.org/downloads/release/python-363/
+read the "notes on this release" chapter, it has hints oabout wha you should do
+
+Recommended installer for windows 64 bits (INTEL or AMD processors): 
+
+https://www.python.org/ftp/python/3.6.2/python-3.6.2-amd64.exe
+
+IMPORTANT : on the first step of the installer, don't forget to click on the box "Add Python 3.6 to PATH"
+IMPORTANT : on the last step of the installer, Disable path length limit for python
+
+Note that Python 3.5+ (and as a consequence 3.6.2 or 3.6.4) cannot be used on Windows XP or earlier.
+
+Ensure that the python installation directory is added to your system path (first step of installer)
+
+install img2pdf and pillow to python by a : 
+
+under windows, in the search bar, type "cmd"
+
+in that new window, type
+
+pip install img2pdf
+pip install pillow
+
+=========================================================================
+
+FRENCH
+
+environnement requis
+PC équipé d'une version de windows ultérieure à Windows XP. MAC OSX 10.6 ou ultérieur. PC Linux. 
+
+recommandé : 
+processeur 64 bits.
+
+Certains outils, ont été écrit en langage de script Python.
+
+Pour qu'ils puissent être utilisés, vous devez intaller Python sur votre ordinateur.
+
+Pour windows, avec un PC équipé d'un processeur 64 bits (INTEL/AMD) : 
+https://www.python.org/ftp/python/3.6.2/python-3.6.2-amd64.exe
+Cette version de python ne fonctionne pas sous Windows XP je crois.
+
+Pour windows, avec un PC équipé d'un processeur 32 bits (INTEL/AMD) : 
+https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe
+Non recommandé.
+
+IMPORTANT : à la première étape de l'installation, il vous faut absolument cocher la case "Add Python 3.6 to PATH"
+IMPORTANT : à la dernière étape de l'installation, cliquer sur "Disable path length limit for python"
+
+Ensuite, il faut effectuer deux commandes.
+
+Sous windows : dans la bare de recherche, tapez 'cmd' enter
+
+cela ouvre une fenêtre de commande noire.
+
+Tapez 
+
+pip install img2pdf
+
+attendez la fin du processus de téléchargement et installation (complètement automatique)
+
+tapez 
+
+pip install pillow
+
+attendez la fin du processus de téléchargement et installation (complètement automatique)
+Si vous avez le message "Requirement already satisfied", cela signifie que ce module est déjà installé. C'est aussi OK.
+
+
