@@ -1,12 +1,17 @@
-
+=======================================================
 FRENCH HERE, ENGLISH BELOW
+
+Typiquement cet outil est utilisé avant scandir2pdf
 
 L'objectif principal de cet outil est d'assurer une conservation à plus long terme de la structure de répertoires, qui risque d'être corrompue/modifiée, à l'occasion de transferts entre "file systems/os" systèmes de fichiers et OS.
 
-Parce que l'outil peut renommer les répertoires, il vérifie aussi si il ne tombe pas dans la situation où après renommage, deux sous répertoires auraient le même nom.
-Dans ce cas, aucun répertoire n'est touché. Les répertoires à problème sont indiqués. Il est laissé à l'utilisateur le soin de renommer un de ces répertoires.
+Reste à faire : 
+	Parce que l'outil peut renommer les répertoires, il vérifie aussi si il ne tombe pas dans la situation où après renommage, deux sous répertoires auraient le même nom.
+	Dans ce cas, aucun répertoire n'est touché. Les répertoires à problème sont indiqués. Il est laissé à l'utilisateur le soin de renommer un de ces répertoires.
+	Actuellement, cette situation fera échouer le renommage du second fichier et stoppera les opérations.
 
-Rien n'est fait sans validation de l'utilisateur. Pour cela les traitements sont fait en plusieurs étapes.
+
+Rien n'est fait sans validation de l'utilisateur. Pour cela les traitements sont fait en deux étapes.
 
 Scrutation, détection des répertoires à problème, affichage du résultat simulé.
 Si le résultat simulé affiché est accepté, il faut relancer l'outil avec l'option : -w 
@@ -72,20 +77,21 @@ Exemple de fond respectant ces contraintes de nommage : fond des enquetes de gér
 Les noms de fichiers doivent-être aussi bref que possible. Ils ne doivent pas servir à donner d'autres indications qu'une identification sans ambiguïté du document. Les systèmes de fichiers Windows ont encore des limitations sur la longueur de chemin complet des fichiers. Il est facile de dépasser le maximum autorisé. Il faut aussi chercher à atteindre la plus grande uniformité dans les nommages.
 
 
-====================================
+=======================================================
 
 ENGLISH 
 
 The primary purpose of this tool is to ensure a longer lifetime to a directry tree by reducing the risk of it being corrupted over transfers between file systems.
 
-This is done by enforcing some naming conventions. On directories and files.
+This is done by enforcing some naming conventions. On directories
 
 justification and general principles : http://www.ufowaves.org/ltdsp/ltsdp/nommage
 
 typically, this would be called before scandir2pdf
 
-Because the tool can rename the directories, it also checks that it does not fall in the situation where after renaming, two directories would have the same name.
+To be done : 
+	Because the tool can rename the directories, it also checks that it does not fall in the situation where after renaming, two directories would have the same name.
 
-If that is the case, the problematic directories are pointed out, and the user must himself rename one of the faulty directories.
+	If that is the case, the problematic directories are pointed out, and the user must himself rename one of the faulty directories.
 
 
