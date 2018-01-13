@@ -12,18 +12,12 @@ Action
  * Pour chaque répertoire X, l'outil scandir2pdf regroupe les fichiers image du répertoire en un fichier X.pdf. Et le place au niveau supérieur de l'arborescence de répertoires.
  * Le traitement est récursif sur les sous répertoires
  * En plus des affichages dans la console, les erreurs et rapport final sont écrits dans un fichier "logParse.txt" pour vérification à la fin. Si vous relancez l'outil, les nouvelles informations sont ajoutées à la fin du fichier.
- * Cet outil ne réalise aucune action irreversible. Il ne change aucun fichier. Il ne fait qu'en ajouter. 
+ * Cet outil ne réalise aucune action irreversible sur les images. Il ne change aucun fichier image. Il ne fait que créér (ou re-créer) des pdf. 
  
 Usage 
  * Copier 'scandir2pdf.py' dans le répertoire racine de votre arborescence de fichiers.
- * Executer ce script (deux façons entre autres)
-   1. Double clicker sur le fichier 'scandir2pdf.py' dans l'explorateur windows. Cette méthode a le défaut que la fenêtre se ferme dès la fin, ce qui ne laisse pas le temps de lire le rapport final. Mais vous pouvez retrouver tous les résultats en lisant le fichier "logParse.txt" créé.
-   1. ou bien Lancer une console windows dans votre répertoire, et taper 'scandir2pdf.py'. Pour cela : 
-     1. Lancez l'explorateur windows et allez sur votre répertoire. 
-     1. Cliquez sur le chemin complet dans l'explorateur, pour le faire apparaître en surbrillance (sélectionné)
-     1. Tapez 'cmd' à la place du chemin complet. appuyez sur 'enter'
-     1. Cela doit ouvrir une console de ligne de commande dans votre répertoire. Tapez scandir2pdf.py puis 'enter'
- * Si vous obtenez immédiatement une erreur du type "n'est pas reconnu en tant que commande interne", cela peut signifier que python n'a pas été ajouté à votre path système ou n'est tout simplement pas installé.
+ * Executer ce script : Double clicker sur le fichier 'scandir2pdf.py' dans l'explorateur windows. Vous pouvez retrouver tous les résultats en lisant le fichier "logParse.txt" créé.
+ * Si vous obtenez immédiatement une erreur du type "n'est pas reconnu en tant que commande interne", cela peut signifier que python n'a pas été ajouté à votre path système ou n'est tout simplement pas installé. Veuillez suivre les instructions d'installation à la lettre.
  
 Limitations
  * La première version de l'outil ne prend en compte que les fichiers jpeg (.jpg ou .jpeg)
@@ -36,12 +30,13 @@ Notes
   
 Recommandations
  * Eviter d'avoir plus de 100 fichiers dans chaque répertoire
-
+ * Eviter d'avoir à la fois, pour un répertoire : de très nombreux fichiers, des noms de répertoire ou de fichier très long. En tout cas, cela peut suffire à faire échouer la conversion en pdf.
+ 
 Requis
  * Scans format jpeg, avec extension de fichier en .jpg ou .jpeg
  * Un répertoire par édition(numéro) de journal
  * Les fichiers de scan nommés de telle sorte qu'ils apparaissent naturellement ordonnés dans l'explorateur windows. Par exemple SCAN_0001.jpg, SCAN_0002.jpg, etc...
- * Une page par fichier
+ * Une page par fichier image (pas 2 ou 4)
  * Image en orientation portrait.
  
 
@@ -59,7 +54,7 @@ Action
  * For each directory X, the tool scandir2pdf regroups the image files in a file named X.pdf. And moves it to the upper stage in the file tree.
  * It recursively parses sub directories for .jpeg and .jpg file 
  * Logs progress, erros and final report in the console and in the file "logParse.txt". New processings are appended at the end of the file.
- * This tool takes no irreversible action. It changes no file to the file tree. It only adds files. 
+ * This tool takes no irreversible action on the source images. It changes no image file in the file tree. It only adds (or overwrites) pdf files. 
  
 Limitations
  * The first version of the tool only takes into account the jpeg files (.jpg or .jpeg)

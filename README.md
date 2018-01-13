@@ -2,6 +2,8 @@
 
 The primary source code repository for these tools is https://github.com/albion2000/tools-jpeg2pdf
 
+The releases are here : https://github.com/albion2000/tools-jpeg2pdf/releases
+
 Tools to help massive conversions from page scans to pdf documents ready for ocr using tools like Adobe Acrobat DC
 
 They are functional, tested on about 8000 pages, special cases will probably happen to you. Please report in case of problems.
@@ -18,13 +20,14 @@ Copy 'naming_conventions.py' & 'naming_conventions_do_rename.py' to the root dir
 
 The primary purpose of this tool is to ensure a longer lifetime to a directry tree by reducing the risk of it being corrupted over transfers between file systems.
 
-It recursively parses sub directories
+It recursively parses sub directories.
 It is able to rename the directories in order to follow some strict conventions.
 
 mode for simulation, with no effect on the name of the directories, for validation purposes:
-naming_conventions.py
+  * naming_conventions.py
+  
 mode for renaming effectively:
-naming_conventions_do_rename.py 
+  * naming_conventions_do_rename.py
 
 The use of this tool is optional, and would be typically used before using scandir2pdf.py
 
@@ -51,7 +54,7 @@ If you can't open it, try to open it with other image tools. Not all handle file
 
 ## scandir2pdf.py
 
-Read the installation_instructions.txt and readme_scandir2pdf.txt
+Read the installation_instructions.txt and readme_scandir2pdf.txt for recommendations and use
 
 Copy 'scandir2pdf.py' to the root directory of your file tree.
 
