@@ -6,7 +6,7 @@ The releases are here : https://github.com/albion2000/tools-jpeg2pdf/releases
 
 Tools to help massive conversions from page scans to pdf documents ready for ocr using tools like Adobe Acrobat DC
 
-They are functional, tested on about 8000 pages, special cases will probably happen to you. Please report in case of problems.
+They are functional, tested on about 14000 pages, special cases will probably happen to you. Please report in case of problems.
 
 One purpose is to keep the tools as simple as possible (KISS), refraining from feature creep. It might be better to create a new derived tool instead of crippling the current tool.
 

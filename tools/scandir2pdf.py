@@ -23,6 +23,13 @@ def printandlogTuple(tuple):
 	logFile.write(''.join(tuple))
 	return
 
+def isJpeg(fname):
+	if (fname.lower().find(".jpg") == len(fname)-4) :
+		return True
+	if (fname.lower().find(".jpeg") == len(fname)-4) :
+		return True
+	return False
+
 print("A sound will be produced at the end of the processing.")
 print("What follows is also logged at the end of the file "+logFileName+"\r\n")
 print('Press <ctrl>+C to abort')
@@ -37,14 +44,7 @@ for dirName, subdirList, fileList in os.walk(rootDir):
 	found = 0;
 	nbpages = 0
 	for fname in fileList:
-		thisisajpeg = 0
-		extposjpg = fname.find(".jpg")
-		if (extposjpg == len(fname)-4) :
-			thisisajpeg = 1
-		extposjpg = fname.find(".jpeg")
-		if (extposjpg == len(fname)-4) :
-			thisisajpeg = 1
-		if (thisisajpeg==1):
+		if (isJpeg(fname)):
 			found = 1;
 			nbpages = nbpages + 1
 			newTuple = (dirName+'/'+fname,);
@@ -72,8 +72,16 @@ for dirName, subdirList, fileList in os.walk(rootDir):
 					newFailedFilesTuple = (outfile+'	',);
 					failedFiles = failedFiles + newFailedFilesTuple
 					failedfilesCount = failedfilesCount+1
-		except:
+		except KeyboardInterrupt:
+			sys.exit(0)
+			break
+		except IOError:
 			printandlog('--->>> **********conversion to pdf failed because we cannot create/replace the pdf file. Is it already open in acrobat reader ? Please close it if that is the case. **********')
+			newFailedFilesTuple = (outfile+'	',);
+			failedFiles = failedFiles + newFailedFilesTuple
+			failedfilesCount = failedfilesCount+1
+		except: 
+			printandlog('--->>> **********conversion to pdf failed for some unclear reason. **********')
 			newFailedFilesTuple = (outfile+'	',);
 			failedFiles = failedFiles + newFailedFilesTuple
 			failedfilesCount = failedfilesCount+1
@@ -81,7 +89,7 @@ for dirName, subdirList, fileList in os.walk(rootDir):
 if (failedfilesCount>0) :
 	printandlog('\r\n\r\n%i file(s) could not be converted (see potential reason looking up), here is the list :' % failedfilesCount)
 	printandlogTuple(failedFiles)
-	printandlog('\r\nIf it is by lack of memory you might just try to go parse directly these only. It can work. Using the 64 bits version of python might help also.');
+	printandlog('\r\nIf it is by lack of memory you might just try to go parse directly these only. It can work. Using the 64 bits version of python might help also. Starting the tool from the command line can also make the difference !');
 else: 
 	printandlog('All files converted with NO ERROR')
 
