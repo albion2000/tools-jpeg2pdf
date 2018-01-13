@@ -1,24 +1,34 @@
 =======================================================
 FRENCH HERE, ENGLISH BELOW
 
-Typiquement cet outil est utilisé avant scandir2pdf
+PRELIMINAIRE
+ * Lisez et suivez les instructions du fichier installation_instructions.txt pour pouvoir lancer l'outil sur votre machine.
 
-L'objectif principal de cet outil est d'assurer une conservation à plus long terme de la structure de répertoires, qui risque d'être corrompue/modifiée, à l'occasion de transferts entre "file systems/os" systèmes de fichiers et OS.
+ACTION
+ * L'objectif principal de cet outil optionnel est d'assurer une conservation à plus long terme de la structure de répertoires, qui risque d'être corrompue/modifiée, à l'occasion de transferts entre "file systems/os" systèmes de fichiers et OS.
+ * Mode Simulation : détection des répertoires à problème, affichage du résultat simulé.
+ * Mode effectif   : Renommage effectif, a effectuer si la simulation vous convient.
+
+USAGE 
+ * Copier 'naming_conventions.py' et 'naming_conventions_do_rename.py' dans le répertoire racine de votre arborescence de fichiers.
+
+2 syntaxes
+
+ * Executer ce script (deux façons)
+   * Pour lancer la simulation (pas de modification réalisée, pas de risque), double cliquez sur le fichier 'naming_conventions.py' dans l'explorateur windows.
+   * Pour lancer le renommage, double cliquez sur le fichier 'naming_conventions_do_rename.py' dans l'explorateur windows.
+ * Si vous obtenez immédiatement une erreur du type "n'est pas reconnu en tant que commande interne", cela peut signifier que python n'a pas été ajouté à votre path système. Veuillez suivre les instructions d'installation.
+
+Les résultats sont dans la console et recopiés à la fin du fichier logRename.txt
+
+typiquement cet outil est utilisé avant scandir2pdf
+
+NOTES
 
 Reste à faire : 
 	Parce que l'outil peut renommer les répertoires, il vérifie aussi si il ne tombe pas dans la situation où après renommage, deux sous répertoires auraient le même nom.
 	Dans ce cas, aucun répertoire n'est touché. Les répertoires à problème sont indiqués. Il est laissé à l'utilisateur le soin de renommer un de ces répertoires.
 	Actuellement, cette situation fera échouer le renommage du second fichier et stoppera les opérations.
-
-
-Rien n'est fait sans validation de l'utilisateur. Pour cela les traitements sont fait en deux étapes.
-
-Scrutation, détection des répertoires à problème, affichage du résultat simulé.
-Si le résultat simulé affiché est accepté, il faut relancer l'outil avec l'option : -w 
-Là le renommage sera effectif.
-
-
-
 
 Copie de : http://www.ufowaves.org/ltdsp/ltsdp/nommage 
 
@@ -58,10 +68,6 @@ lettres de 'A' à 'Z'
 '_' tiret bas (fait office d'espaces)
 Oui en effet, il est interdit d'utiliser les caractères accentués.
 
-Je pourrais être plus restrictif, pour donner un aspect plus léché au fond, mais ce n'est pas nécessaire. Au delà, trop de personnes ne font pas l'effort de respecter les règles, juste par flemme ou étourderie.
-
-Pour commencer, il est possible de faire un renommage automatique de tout ce qui existe déjà pour respecter ces règles. (par un programme informatique)
-
 Les noms de répertoire doivent-être aussi bref que possible. Les systèmes de fichiers Windows ont encore des limitations sur la longueur de chemin complet des fichiers. Il est facile de dépasser le maximum autorisé.
 
 Modifier
@@ -81,6 +87,12 @@ Les noms de fichiers doivent-être aussi bref que possible. Ils ne doivent pas se
 
 ENGLISH 
 
+PRELIMINARY
+ * Read the installation_instructions.txt for being able to run the tool on your machine.
+
+ 
+ACTION
+
 The primary purpose of this tool is to ensure a longer lifetime to a directry tree by reducing the risk of it being corrupted over transfers between file systems.
 
 This is done by enforcing some naming conventions. On directories
@@ -89,9 +101,25 @@ justification and general principles : http://www.ufowaves.org/ltdsp/ltsdp/nomma
 
 typically, this would be called before scandir2pdf
 
+USE
+ * Copy 'naming_conventions.py' & 'naming_conventions_do_rename.py' into the root directory of your files.
+ * Simulation, with no effect on the name of the directories, for validation purposes: double click on naming_conventions.py
+ * Renaming effectively : double click on naming_conventions_do_rename.py
+
+
 To be done : 
 	Because the tool can rename the directories, it also checks that it does not fall in the situation where after renaming, two directories would have the same name.
-
 	If that is the case, the problematic directories are pointed out, and the user must himself rename one of the faulty directories.
 
+log into file logRename.txt
 
+rules followed
+
+# tries to convert as best as it can anything in ascii characters
+# go lower case
+# anything that is neither a letter nor a number is replaced by _
+# æ becomes ae
+# œ becomes oe
+# 'N°' decomes 'n_'
+# remove too many '_'
+# remove '_' at start or end of dir name

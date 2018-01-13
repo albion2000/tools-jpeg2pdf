@@ -15,6 +15,7 @@ ACTION
  
 USE
  * Copy 'check_jpegs.py' to the root directory of your file three.
+ * Double click on the file 'check_jpegs.py'
 
 NOTES
  * It is, on purpose, a fast check in order to help detect rapidly bad files.
@@ -37,14 +38,7 @@ ACTION
 
 USAGE 
  * Copier 'check_jpegs.py' dans le répertoire racine de votre arborescence de fichiers.
- * Executer ce script (deux façons entre autres)
-   1. Lancer une console windows dans votre répertoire, et taper 'check_jpegs.py'. Pour cela : 
-     1. Lancez l'explorateur windows et allez sur votre répertoire. 
-     1. Cliquez sur le chemin complet dans l'explorateur, pour le faire apparaître en surbrillance (sélectionné)
-     1. Tapez 'cmd' à la place du chemin complet. appuyez sur 'enter'
-     1. Cela doit ouvrir une console de ligne de commande dans votre répertoire. Tapez check_jpegs.py puis 'enter'
-   1. ou bien (non recommandé) Double cliquer sur le fichier 'check_jpegs.py' dans l'explorateur windows. Cette méthode a le défaut que la fenêtre se ferme dès la fin, ce qui ne laisse pas le temps de lire le rapport final. 
- * Si vous obtenez immédiatement une erreur du type "n'est pas reconnu en tant que commande interne", cela peut signifier que python n'a pas été ajouté à votre path système.
+ * Double cliquez sur 'check_jpegs.py'
 
 NOTES
  * Seuls les entêtes de fichiers sont vérifiées, elles ne sont pas décompressées.

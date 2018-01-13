@@ -34,6 +34,7 @@ under windows, in the search bar, type "cmd"
 in that new window, type
 
 pip install img2pdf
+pip install unidecode
 pip install pillow
 
 =========================================================================
@@ -61,15 +62,25 @@ Non recommandé.
 IMPORTANT : à la première étape de l'installation, il vous faut absolument cocher la case "Add Python 3.6 to PATH"
 IMPORTANT : à la dernière étape de l'installation, cliquer sur "Disable path length limit for python"
 
-Ensuite, il faut effectuer deux commandes.
+Ensuite, il faut effectuer deux commandes, en utilisant l'invite de commande windows : 
 
-Sous windows : dans la barre de recherche, tapez 'cmd' enter
+Sous windows 10 : clicker sur l'icone 'fenêtre windows' tout en bas à gauche, puis tapez 'cmd' puis appuyez sur enter  (tapez même si ce que vous tapez n'apparait nulle part)
 
-cela ouvre une fenêtre de commande noire.
+cela ouvre une fenêtre "invite de commande" noire.
+
+autre façon de faire : ouvrir un explorateur de fichiers, dans la barre de chemin, tapez 'cmd' puis appuyez sur enter 
+
+Dans la fenêtre noire :
 
 Tapez 
 
 pip install img2pdf
+
+attendez la fin du processus de téléchargement et installation (complètement automatique)
+
+tapez 
+
+pip install unidecode
 
 attendez la fin du processus de téléchargement et installation (complètement automatique)
 

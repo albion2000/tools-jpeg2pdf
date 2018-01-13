@@ -9,7 +9,7 @@ import unicodedata
 # rules 
 
 def accentsTidy(s) :
-# tries to convert as best as it can anything in ascii characters (° becomes deg !)
+# tries to convert as best as it can anything in ascii characters ('°' becomes 'deg' !)
 	r = unidecode.unidecode(s)
 # go lower case
 	r = r.lower();
@@ -36,7 +36,8 @@ def accentsTidy(s) :
 	r = re.sub('_$','',r);	
 	return r;
 
-logFile = open('logRename.txt','a')
+logFileName = 'logRename.txt'
+logFile = open(logFileName,'a')
 
 def printandlog(str):
 	print(str)
@@ -72,6 +73,8 @@ def process(do_rename) :
 		nbDir = 0
 		for dirName, subdirList, fileList in os.walk(rootDir):
 			for subdir in subdirList :
+				if subdir == '__pycache__' :
+					continue
 				stripped = accentsTidy(subdir)
 				nbDir = nbDir + 1
 				if (same_string(stripped,subdir)) : 
@@ -90,6 +93,8 @@ def process(do_rename) :
 				if dirName == '.' :
 					continue
 				if dirName == '..' :
+					continue
+				if dirName == '.\\__pycache__' :
 					continue
 				stripped = accentsTidy(dirName)
 				nbDir = nbDir + 1
@@ -122,7 +127,9 @@ def process(do_rename) :
 			printandlog("%i change(s) done in a total of %i directories" % (nbChanges,nbDir))
 		else:
 			printandlog("%i change(s) needed in a total of %i directories" % (nbChanges,nbDir))
-			printandlog("this was a simulation, if you are happy with this renaming proposal, do 'naming_conventions -w'");
+			printandlog("this was a simulation, if you are happy with this renaming proposal, do 'naming_conventions.py -w'");
+	print("\nAll this was logged at the end of the file "+logFileName);
+
 
 def test() :
 	s = 'æÁÀÂÄÃÅÇÉÈÊËÍÏÎÌÑÓÒÔÖÕÚÙÛÜÝœ- áàâäãåçéèêëíìîïñóòôöõúùûüý ÿ'
@@ -139,11 +146,13 @@ def print_syntax() :
 	print('naming_conventions.py')
 	print('syntax for renaming effectively:')
 	print('naming_conventions.py -w')
+	os.system("pause")
 
 
 def main(argv) :
 	if (len(sys.argv)==1): 
 		process(0)
+		os.system("pause")
 	else : 
 		try:
 			opts, args = getopt.getopt(argv,"hw")
@@ -156,9 +165,11 @@ def main(argv) :
 				sys.exit()
 			elif opt == '-w':
 				process(1)
+				os.system("pause")
 				sys.exit()
 			else : 
 				print("ignored");
+				os.system("pause")
 				sys.exit()
 		print_syntax()
 

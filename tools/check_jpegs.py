@@ -48,9 +48,10 @@ for dirName, subdirList, fileList in os.walk(rootDir):
 		
 print('\r\n')
 if (badFilesCount>0) :
-	print('found %i bad files' % badFilesCount);
+	print('found %i bad file(s)' % badFilesCount);
 else :
 	print('All %i jpeg files in %i directories (containing jpeg images) passed the sanity check. No problem.' % (allJPGFilesCount,allDirCount));
 
 # BELL	
 print('\a')
+os.system("pause")
