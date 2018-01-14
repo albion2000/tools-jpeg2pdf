@@ -127,7 +127,7 @@ def process(do_rename) :
 			printandlog("%i change(s) done in a total of %i directories" % (nbChanges,nbDir))
 		else:
 			printandlog("%i change(s) needed in a total of %i directories" % (nbChanges,nbDir))
-			printandlog("this was a simulation, if you are happy with this renaming proposal, do 'naming_conventions.py -w'");
+			printandlog("this was a simulation, if you are happy with this renaming proposal, use 'naming_conventions_do_rename.py'");
 	print("\nAll this was logged at the end of the file "+logFileName);
 
 
