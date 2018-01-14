@@ -16,12 +16,12 @@ ACTION
 USE
  * Copy 'check_jpegs.py' & 'check_jpegs_full.py' to the root directory of your file three.
  * either Double click on the file 'check_jpegs.py' for a quick sanity check. It is, on purpose, a fast check in order to help detect rapidly bad files. Only the headers are checked, the images are not decompressed.
- * or Double click on the file 'check_jpegs_full.py' instead for a full sanity check
+ * or Double click on the file 'check_jpegs_full.py' instead for a much deeper sanity check
 
 NOTES
  * Each '.' shows that one more directory was parsed
  * When a file is reported as corrupted, it does not mean that it is lost. Try to open it in your favorite image sw and save it back (using the best quality, in order to reduce compression losses). It is often enough. If you can't open it, try to open it with other image tools. Not all handle file corruption the same way.
-
+ * Does not detect all types of file corruption. Some corruptions that do not prevent image display won't be detected.
 
 ==============================================================================
 
@@ -43,4 +43,4 @@ USAGE
 NOTES
  * Chaque '.' indique d'un répertoire supplémentaire a été traité
  * Quoi faire avec le résultat du "check" ? Fichier corrompu ? Ne signifie pas qu'il est perdu. Essayez de le charger avec tous vos logiciels capables de charger et sauvegarder des jpeg (à la meilleure qualité pour réduire les altérations dues à la compression). Cela suffit souvent pour récupérer le fichier.
- 
+ * Ne détectera pas absolument tous les types de corruption, mais au moins ceux qui empecheraient la visualisation de l'image. Et certains de ceux qui abiment l'image. 

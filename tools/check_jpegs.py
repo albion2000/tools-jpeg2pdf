@@ -3,6 +3,16 @@ import os
 from PIL import Image
 import sys
 
+
+# this code also should work for other compressions, with little changes
+
+def isJpeg(fname):
+	if (fname.lower().find(".jpg") == len(fname)-4) :
+		return True
+	if (fname.lower().find(".jpeg") == len(fname)-4) :
+		return True
+	return False
+
 def process(fullCheck):
 
 	# Set the directory you want to start from
@@ -28,16 +38,7 @@ def process(fullCheck):
 		currentPath = os.getcwd();
 		for fname in fileList:
 	#		print('\t%s' % fname)
-
-			thisisajpeg = 0
-	# this code also should work for other compressions
-			extposjpg = fname.find(".jpg")
-			if (extposjpg == len(fname)-4) :
-			  thisisajpeg = 1
-			extposjpg = fname.find(".jpeg")
-			if (extposjpg == len(fname)-4) :
-			  thisisajpeg = 1
-			if (thisisajpeg==1):
+			if (isJpeg(fname)):
 				found = 1;
 				allJPGFilesCount = allJPGFilesCount+1
 				newTuple = (dirName+'/'+fname,);
