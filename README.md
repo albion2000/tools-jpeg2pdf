@@ -6,9 +6,11 @@ The releases are here : https://github.com/albion2000/tools-jpeg2pdf/releases
 
 Tools to help massive conversions from page scans to pdf documents ready for ocr using tools like Adobe Acrobat DC
 
-They are functional, tested on about 14000 pages, special cases will probably happen to you. Please report in case of problems.
+They are functional, tested with Windows 10, on about 14000 pages, special cases will probably happen to you. Please report in case of problems.
 
 One purpose is to keep the tools as simple as possible (KISS), refraining from feature creep. It might be better to create a new derived tool instead of crippling the current tool.
+
+Some small adaptations will be necessary for it to run with linux, small changes like replacing '\' by '/' for the path. 
 
 In short :
 
@@ -31,6 +33,11 @@ mode for renaming effectively:
 
 The use of this tool is optional, and would be typically used before using scandir2pdf.py
 
+Rules followed : 
+1)tries to convert as best as it can anything in ascii characters
+2)go lower case
+3)anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
+4)ae,oe handled, reduce '__' to '_', remove '_' at start and end. 
 
 ## check_jpegs.py & check_jpegs_full.py
 
@@ -68,3 +75,14 @@ For each directory X, the tool scandir2pdf regroups the image files in a file na
 It is built upon img2pdf, which ensures no jpeg recompression and the best possible quality.
 
 Logs progress, errors and final report in the console and in the file "logParse.txt"
+
+## after scandir2pdf you would use an OCR software of your choice.
+
+## scandirpdf2txt.py
+
+Read the installation_instructions.txt and readme_scandirpdf2txt.txt for recommendations and use
+
+It recursively parses sub directories for .pdf files 
+
+Provided that these where previously processed with an OCR Optical Character Recognition software, 
+it will extract their text into .txt files 

@@ -9,17 +9,21 @@ import unicodedata
 # rules 
 
 def accentsTidy(s) :
-# tries to convert as best as it can anything in ascii characters ('°' becomes 'deg' !)
+# special case of '.\' to keep for the root dirs...
+	if ((s[0]=='.') and (s[1]=='\\')) :
+		return '.'+'\\'+accentsTidy(s[2:]);
+
+# tries to convert as best as it can anything in ascii characters (special case : '°' becomes 'deg' !)
 	r = unidecode.unidecode(s)
 # go lower case
 	r = r.lower();
-# anything that is neither a letter nor a number nor a \ is replaced by _
-	r = re.sub("[^\d\w\.\\\/]",'_',r);
 # æ becomes ae
 	r = re.sub("/æ/g","ae",r);
 # œ becomes oe
 	r = re.sub("/œ/g","oe",r);
-# N° decomes n
+# anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
+	r = re.sub("[^-\d\w\\\/]",'_',r);
+# N° decomes n_
 	r = re.sub("ndeg","n_",r);
 # remove too many '_'
 	r = re.sub("__","_",r);
@@ -84,7 +88,7 @@ def process(do_rename) :
 					nbChanges = nbChanges + 1 
 					printandlog("\n"+dirName+"\\"+stripped+"  <--  "+dirName+"\\"+subdir); 
 	else:
-# Real Deal, we parse all the dirs using path from the rootDir, one by one. Slow, not smart, but small code.
+# Real Deal, we parse all the dirs using path from the rootDir, one by one, in O(n2)... Slow, not smart, but small code.
 		found = 1
 		while (found) :
 			found = 0
@@ -110,7 +114,7 @@ def process(do_rename) :
 							os.rename(dirName,stripped)
 						except:
 							print("Renaming was refused by the PC. Check that you don't have a file open in the file tree. You might need to close some file explorer");
-							sys.exit()
+							return;
 						found = 1
 						break
 					
