@@ -66,7 +66,8 @@ chiffres de '0' à '9'
 lettres de 'a' à 'z'
 lettres de 'A' à 'Z'
 '_' tiret bas (fait office d'espaces)
-Oui en effet, il est interdit d'utiliser les caractères accentués.
+'-' tiret
+Oui en effet, il est interdit d'utiliser les caractères accentués ou composés.
 
 Les noms de répertoire doivent-être aussi bref que possible. Les systèmes de fichiers Windows ont encore des limitations sur la longueur de chemin complet des fichiers. Il est facile de dépasser le maximum autorisé.
 
