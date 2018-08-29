@@ -1,5 +1,8 @@
 # coding: utf-8
 
+# toutes les chaines sont en unicode (même les docstrings)
+from __future__ import unicode_literals
+
 import re
 import os
 import sys, getopt
@@ -8,6 +11,29 @@ import unicodedata
 
 # rules 
 
+
+def ridoffbadchars(s) :
+	r = s;
+# as a last resort get rid of still unknown unicode characters	
+	r = re.sub("\uf018","_",r);
+	r = re.sub("\uf019","_",r);
+	r = re.sub("\uf020","_",r);
+	r = re.sub("\uf021","_",r);
+	r = re.sub("\uf022","_",r);
+	r = re.sub("\uf023","_",r);
+	r = re.sub("\uf024","_",r);
+	r = re.sub("\uf025","_",r);
+	r = re.sub("\uf026","_",r);
+	r = re.sub("\uf027","_",r);
+	r = re.sub("\uf028","_",r);
+	r = re.sub("\uf029","_",r);
+	r = re.sub("\uf030","_",r);
+	r = re.sub("\uf031","_",r);
+	
+	return r;
+	
+
+
 def accentsTidy(s) :
 # special case of '.\' to keep for the root dirs...
 	if ((s[0]=='.') and (s[1]=='\\')) :
@@ -15,6 +41,7 @@ def accentsTidy(s) :
 
 # tries to convert as best as it can anything in ascii characters (special case : '°' becomes 'deg' !)
 	r = unidecode.unidecode(s)
+	
 # go lower case
 	r = r.lower();
 # æ becomes ae
@@ -24,10 +51,12 @@ def accentsTidy(s) :
 # anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
 	r = re.sub("[^-\d\w\\\/]",'_',r);
 # N° decomes n_
-	r = re.sub("ndeg","n_",r);
+	r = re.sub("ndeg","#",r);
 # remove too many '_'
 	r = re.sub("__","_",r);
 	r = re.sub("__","_",r);
+# remove too many '_-_'
+	r = re.sub("_-_","-",r);
 # remove '_' at start or end of dir name in the chain of subs (_sub1_\_sub2_\_sub3_) => (sub1\sub2\sub3)
 # replace '\_' by '\', '_\' by '\'
 	litteral_backslash = r"\\";
@@ -38,6 +67,24 @@ def accentsTidy(s) :
 # important, a '_' at beginning or end of dir chain should also be removed, else won't be able to rename	
 	r = re.sub('^_','',r);
 	r = re.sub('_$','',r);	
+
+	r = re.sub("degdeg","deg",r);
+	r = re.sub("degdeg","deg",r);
+	r = re.sub("degdeg","deg",r);
+	r = re.sub("degdeg","deg",r);
+	r = re.sub("degdeg","deg",r);
+
+	r = re.sub('_deg$','',r);
+	r = re.sub('deg$','',r);
+
+# as a last resort get rid of still unknown unicode characters	
+	r = ridoffbadchars(r);
+
+#	length = len(r);
+#	for i in range(0,length-1):
+#		if (r[i]=='\uf022'):
+#			r[i] = '_';
+			
 	return r;
 
 logFileName = 'logRename.txt'
@@ -86,7 +133,7 @@ def process(do_rename) :
 					sys.stdout.flush()
 				else :
 					nbChanges = nbChanges + 1 
-					printandlog("\n"+dirName+"\\"+stripped+"  <--  "+dirName+"\\"+subdir); 
+					printandlog("\n"+dirName+"\\"+stripped+"  <--  "+dirName+"\\"+ridoffbadchars(subdir)); 
 	else:
 # Real Deal, we parse all the dirs using path from the rootDir, one by one, in O(n2)... Slow, not smart, but small code.
 		found = 1
@@ -109,7 +156,7 @@ def process(do_rename) :
 					if (not found) : 
 						nbChanges = nbChanges + 1 
 						printandlog("");
-						printandlog(stripped+"  <--  "+dirName); 
+						printandlog(stripped+"  <--  "+ridoffbadchars(dirName)); 
 						try:
 							os.rename(dirName,stripped)
 						except:
