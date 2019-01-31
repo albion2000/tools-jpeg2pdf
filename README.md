@@ -86,3 +86,12 @@ It recursively parses sub directories for .pdf files
 
 Provided that these where previously processed with an OCR Optical Character Recognition software, 
 it will extract their text into .txt files 
+
+## count_pdf_pages.py
+
+Read the installation_instructions.txt for the prerequisites
+
+It recursively parses sub directories for .pdf files 
+
+It generates a logCountPages.txt file with one line per pdf document found. 
+Each line contains the number of pages of the pdf document and the document path. 

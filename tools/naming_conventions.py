@@ -57,6 +57,10 @@ def accentsTidy(s) :
 	r = re.sub("__","_",r);
 # remove too many '_-_'
 	r = re.sub("_-_","-",r);
+# remove too many '_-_'
+	r = re.sub("-_","-",r);
+# remove too many '_-_'
+	r = re.sub("_-","-",r);
 # remove '_' at start or end of dir name in the chain of subs (_sub1_\_sub2_\_sub3_) => (sub1\sub2\sub3)
 # replace '\_' by '\', '_\' by '\'
 	litteral_backslash = r"\\";
