@@ -95,3 +95,15 @@ It recursively parses sub directories for .pdf files
 
 It generates a logCountPages.txt file with one line per pdf document found. 
 Each line contains the number of pages of the pdf document and the document path. 
+
+## scandirpdf2cover.py
+
+Read the installation_instructions.txt for the prerequisites
+
+It recursively parses sub directories for .pdf files 
+
+For each .pdf, it generates a png file preview of the cover page.
+The png is placed in the same directory as the pdf.
+
+Only that tool makes use of the wand python library
+
