@@ -26,7 +26,7 @@ def printandlogTuple(tuple):
 def isJpeg(fname):
 	if (fname.lower().find(".jpg") == len(fname)-4) :
 		return True
-	if (fname.lower().find(".jpeg") == len(fname)-4) :
+	if (fname.lower().find(".jpeg") == len(fname)-5) :
 		return True
 	return False
 
