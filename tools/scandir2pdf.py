@@ -30,6 +30,16 @@ def isJpeg(fname):
 		return True
 	return False
 
+def isGif(fname):
+	if (fname.lower().find(".gif") == len(fname)-4) :
+		return True
+	return False
+
+def isPng(fname):
+	if (fname.lower().find(".png") == len(fname)-4) :
+		return True
+	return False
+
 print("A sound will be produced at the end of the processing.")
 print("What follows is also logged at the end of the file "+logFileName+"\r\n")
 print('Press <ctrl>+C to abort')
@@ -44,7 +54,7 @@ for dirName, subdirList, fileList in os.walk(rootDir):
 	found = 0;
 	nbpages = 0
 	for fname in fileList:
-		if (isJpeg(fname)):
+		if (isJpeg(fname) or isGif(fname) or isPng(fname)):
 			found = 1;
 			nbpages = nbpages + 1
 			newTuple = (dirName+'/'+fname,);
