@@ -61,6 +61,17 @@ Each '.' shows that one more directory was parsed
 When a file is reported corrupted, it does not mean that it is lost. Try to open it in your favorite image sw and save it back (using the best quality, in order to reduce compression losses). It is often enough.
 If you can't open it, try to open it with other image tools. Not all handle file corruption the same way.
 
+## check_pdfs.py 
+
+Read the installation_instructions.txt 
+
+Copy 'check_pdfs.py' to the root directory of your file tree.
+
+It recursively parses sub directories for .pdf files
+
+Each '*' shows that one more file was parsed
+
+Some false positive are possible.
 
 ## scandir2pdf.py
 
@@ -106,4 +117,17 @@ For each .pdf, it generates a png file preview of the cover page.
 The png is placed in the same directory as the pdf.
 
 Only that tool makes use of the wand python library
+
+## scandirpdf2jpg.py & scandirpdf2png.py
+
+Is the reverse operation of scandir2pdf, the images created will be named like page_0001.jpg ...
+
+## scandirpdf2noocr.py
+
+Recursively remove all the ocr text from the pdfs. Can be needed if your ocr sw happens to append its generated text to the one already present.
+
+## scandirjpg2pdf.py
+
+Is almost like scandir2pdf expect that it will create one pdf per image. And will only behave like scandir2pdf on a directory, if a file named multi.txt is present
+
 
