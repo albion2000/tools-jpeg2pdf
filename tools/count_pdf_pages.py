@@ -39,11 +39,13 @@ def printandlogTuple(tuple):
 def same_string(a,b):
 	return ((a.find(b)==0) and (b.find(a)==0))
 
-def process(do_rename_dir, do_rename_files) :
+def process() :
 
 	# Set the directory you want to start from
 	rootDir = '.'
 	nbFiles = 0
+	fails = 0
+	totalPages = 0
 				
 	printandlog("")
 	
@@ -56,9 +58,19 @@ def process(do_rename_dir, do_rename_files) :
 			orig_full_path = dirName+"\\"+file
 			if isPdf(orig_full_path) :
 				reader = PdfFileReader(open(orig_full_path,"rb"))
-				printandlog("%i %s" % (reader.getNumPages(),orig_full_path)); 
+				try:
+					nbPages = reader.getNumPages()
+					totalPages += nbPages
+					printandlog("%i %s" % (nbPages,orig_full_path))
 				sys.stdout.flush()
 				nbFiles = nbFiles + 1
+				except:
+					printandlog("####### Could not properly open %s. It may be password protected, corrupted or just protected against modification" % (orig_full_path))
+					fails+=1
+
+	printandlog("Total %i documents" % (nbFiles))
+	printandlog("Total %i pages" % (totalPages))
+	printandlog("%i pdf(s) could not be properly open. These may be password protected, corrupted or just protected against modification" % (fails))
 				
 	# BELL	
 	print('\a')
@@ -70,28 +82,8 @@ def print_syntax() :
 
 
 def main(argv) :
-	if (len(sys.argv)==1): 
-		process(0,0)
+	process()
 		os.system("pause")
-	else : 
-		try:
-			opts, args = getopt.getopt(argv,"hw")
-		except getopt.GetoptError:
-			print_syntax()
-			sys.exit(2)
-		for opt, arg in opts:
-			if opt == '-h':
-				print_syntax()
-				sys.exit()
-			elif opt == '-w':
-				process(0,1)
-				os.system("pause")
-				sys.exit()
-			else : 
-				print("ignored");
-				os.system("pause")
-				sys.exit()
-		print_syntax()
 
 if __name__ == "__main__":
    main(sys.argv[1:])

@@ -65,8 +65,8 @@ def convert(src_filename):
 		number_of_pages = number_of_pages
 
 	for x in range(number_of_pages):
-		img = pdf_page_to_png(src_pdf, pagenum = x, resolution = 150)
-		img.save(filename = truncated_fname + "\\" + "page_" + str(x).zfill(3) + ".jpg")
+		img = pdf_page_to_jpg(src_pdf, pagenum = x, resolution = 150)
+		img.save(filename = truncated_fname + "\\" + "page_" + str(x).zfill(4) + ".jpg")
 
 
 

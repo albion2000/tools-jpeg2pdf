@@ -81,8 +81,8 @@ def main(argv) :
 	else:
 		printandlog("%i corrupted in a total of %i pdf files" % (nbFileWrong,nbFiles))
 
-	print("\nAll this was logged at the end of the file "+logFileName);
-
+	print("\nAll this was logged at the end of the file "+logFileName)
+	os.system("pause")
 
 if __name__ == "__main__":
    main(sys.argv[1:])
