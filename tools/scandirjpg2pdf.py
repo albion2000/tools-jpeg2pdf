@@ -114,44 +114,44 @@ for dirName, subdirList, fileList in os.walk(rootDir):
 			
 			
 		else :	
-		for fname in files:
-			outfile = fname+'.pdf';
-			
-#	extract the name of the directory
-		
+			for fname in files:
+				outfile = fname+'.pdf';
+
+	#	extract the name of the directory
+
 				printandlogNoRC('-->%s (1 page)' % (outfile))
-			try:
-				with open(outfile,"wb") as f:
-					try :	
-						f.write(img2pdf.convert(fname))
-						f.flush()
-						f.close()
-						printandlog(' ')
-					except MemoryError:
-						f.close()
-						printandlog('--->>> **********conversion to pdf failed by lack of memory, too many files or too long file path ???**********')
-						newFailedFilesTuple = (outfile+'	',);
-						failedFiles = failedFiles + newFailedFilesTuple
-						failedfilesCount = failedfilesCount+1
-					except img2pdf.ImageOpenError:
-						f.close()
-						printandlog('--->>> **********conversion to pdf failed due to a bad jpeg file format???**********')
-						newFailedFilesTuple = (outfile+'	',);
-						failedFiles = failedFiles + newFailedFilesTuple
-						failedfilesCount = failedfilesCount+1
-			except KeyboardInterrupt:
-				sys.exit(0)
-				break
-			except IOError:
-				printandlog('--->>> **********conversion to pdf failed because we cannot create/replace the pdf file. Is it already open in acrobat reader ? Please close it if that is the case. **********')
-				newFailedFilesTuple = (outfile+'	',);
-				failedFiles = failedFiles + newFailedFilesTuple
-				failedfilesCount = failedfilesCount+1
-			except: 
-				printandlog('--->>> **********conversion to pdf failed for some unclear reason. **********')
-				newFailedFilesTuple = (outfile+'	',);
-				failedFiles = failedFiles + newFailedFilesTuple
-				failedfilesCount = failedfilesCount+1
+				try:
+					with open(outfile,"wb") as f:
+						try :	
+							f.write(img2pdf.convert(fname))
+							f.flush()
+							f.close()
+							printandlog(' ')
+						except MemoryError:
+							f.close()
+							printandlog('--->>> **********conversion to pdf failed by lack of memory, too many files or too long file path ???**********')
+							newFailedFilesTuple = (outfile+'	',);
+							failedFiles = failedFiles + newFailedFilesTuple
+							failedfilesCount = failedfilesCount+1
+						except img2pdf.ImageOpenError:
+							f.close()
+							printandlog('--->>> **********conversion to pdf failed due to a bad jpeg file format???**********')
+							newFailedFilesTuple = (outfile+'	',);
+							failedFiles = failedFiles + newFailedFilesTuple
+							failedfilesCount = failedfilesCount+1
+				except KeyboardInterrupt:
+					sys.exit(0)
+					break
+				except IOError:
+					printandlog('--->>> **********conversion to pdf failed because we cannot create/replace the pdf file. Is it already open in acrobat reader ? Please close it if that is the case. **********')
+					newFailedFilesTuple = (outfile+'	',);
+					failedFiles = failedFiles + newFailedFilesTuple
+					failedfilesCount = failedfilesCount+1
+				except: 
+					printandlog('--->>> **********conversion to pdf failed for some unclear reason. **********')
+					newFailedFilesTuple = (outfile+'	',);
+					failedFiles = failedFiles + newFailedFilesTuple
+					failedfilesCount = failedfilesCount+1
 	 
 if (failedfilesCount>0) :
 	printandlog('\r\n\r\n%i file(s) could not be converted (see potential reason looking up), here is the list :' % failedfilesCount)
