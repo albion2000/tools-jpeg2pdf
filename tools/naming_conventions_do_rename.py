@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import os
-import naming_conventions
+import naming_conventions_files
 
-naming_conventions.process(1)
+naming_conventions_files.process(1,0,0)
 os.system("pause")

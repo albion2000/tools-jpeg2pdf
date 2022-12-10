@@ -50,6 +50,16 @@ def isMultiPageMarkerFile(fname):
 		return True
 	return False
 
+def stripExtension(fname):
+	pos = fname.rfind(".")
+	if pos == -1 :
+		return fname
+	if pos == len(fname)-4 :
+		return fname[0:pos]
+	if pos == len(fname)-5 :
+		return fname[0:pos]
+	return fname
+		
 
 print("A sound will be produced at the end of the processing.")
 print("What follows is also logged at the end of the file "+logFileName+"\r\n")
@@ -115,7 +125,7 @@ for dirName, subdirList, fileList in os.walk(rootDir):
 			
 		else :	
 			for fname in files:
-				outfile = fname+'.pdf';
+				outfile = stripExtension(fname)+'.pdf';
 
 	#	extract the name of the directory
 

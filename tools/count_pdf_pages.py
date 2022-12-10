@@ -62,8 +62,8 @@ def process() :
 					nbPages = reader.getNumPages()
 					totalPages += nbPages
 					printandlog("%i %s" % (nbPages,orig_full_path))
-				sys.stdout.flush()
-				nbFiles = nbFiles + 1
+					sys.stdout.flush()
+					nbFiles = nbFiles + 1
 				except:
 					printandlog("####### Could not properly open %s. It may be password protected, corrupted or just protected against modification" % (orig_full_path))
 					fails+=1
@@ -71,7 +71,7 @@ def process() :
 	printandlog("Total %i documents" % (nbFiles))
 	printandlog("Total %i pages" % (totalPages))
 	printandlog("%i pdf(s) could not be properly open. These may be password protected, corrupted or just protected against modification" % (fails))
-				
+
 	# BELL	
 	print('\a')
 	printandlog('\n')
@@ -83,7 +83,7 @@ def print_syntax() :
 
 def main(argv) :
 	process()
-		os.system("pause")
+	os.system("pause")
 
 if __name__ == "__main__":
    main(sys.argv[1:])
