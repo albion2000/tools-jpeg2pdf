@@ -46,8 +46,8 @@ def process() :
 	nbFiles = 0
 	fails = 0
 	totalPages = 0
-				
 	printandlog("")
+	ProblematicFilesList = []
 	
 	for dirName, subdirList, fileList in os.walk(rootDir):
 		if dirName == '..' :
@@ -57,21 +57,25 @@ def process() :
 		for file in fileList :
 			orig_full_path = dirName+"\\"+file
 			if isPdf(orig_full_path) :
-				reader = PdfFileReader(open(orig_full_path,"rb"))
 				try:
+					reader = PdfFileReader(open(orig_full_path,"rb"))
 					nbPages = reader.getNumPages()
 					totalPages += nbPages
-					printandlog("%i %s" % (nbPages,orig_full_path))
+					printandlog("%04i %s" % (nbPages,orig_full_path))
 					sys.stdout.flush()
 					nbFiles = nbFiles + 1
 				except:
-					printandlog("####### Could not properly open %s. It may be password protected, corrupted or just protected against modification" % (orig_full_path))
+					ProblematicFilesList.append(orig_full_path)
 					fails+=1
 
 	printandlog("Total %i documents" % (nbFiles))
 	printandlog("Total %i pages" % (totalPages))
 	printandlog("%i pdf(s) could not be properly open. These may be password protected, corrupted or just protected against modification" % (fails))
-
+	printandlog("Here is the list")
+	
+	for filename in ProblematicFilesList:
+		printandlog(filename)
+	
 	# BELL	
 	print('\a')
 	printandlog('\n')
