@@ -14,7 +14,7 @@ Some small adaptations will be necessary for it to run with linux, small changes
 
 In short :
 
-## naming_conventions.py & naming_conventions_do_rename.py
+## naming_conventions_files.py, naming_conventions_do_rename & naming_conventions_do_rename_fles.py
 
 Read the installation_instructions.txt and readme_naming_conventions.txt
 
@@ -25,11 +25,31 @@ The primary purpose of this tool is to ensure a longer lifetime to a directory t
 It recursively parses sub directories.
 It is able to rename the directories in order to follow some strict conventions.
 
-mode for simulation, with no effect on the name of the directories, for validation purposes:
-  * naming_conventions.py
+script for simulation, with no effect (by default) on the name of the directories and files, for validation purposes:
+  * naming_conventions_files.py
   
-mode for renaming effectively:
+mode for renaming effectively directories:
   * naming_conventions_do_rename.py
+
+mode for renaming effectively files:
+  * naming_conventions_do_rename_files.py
+
+you can also use naming_conventions_files on the command line to do everythong with more options
+syntax for simulation, with no effect on the name of the files or directories, for validation purposes:
+naming_conventions_files.py
+naming_conventions_files.py -t
+
+syntax for renaming effectively the files:
+naming_conventions_files.py -w
+
+syntax for renaming effectively the directories:
+naming_conventions_files.py -d
+
+additional option -t to use if one want dates to be moved to the front of the names and reorganized in YYYY-MM-DD format
+all 3 options can be combined and all combinations are meaningful
+
+naming_conventions_do_rename is equivalent to a call to naming_conventions_files -d
+naming_conventions_do_rename_files is equivalent to a call to naming_conventions_files -w
 
 The use of this tool is optional, and would be typically used before using scandir2pdf.py
 
@@ -37,7 +57,8 @@ Rules followed :
 1)tries to convert as best as it can anything in ascii characters
 2)go lower case
 3)anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
-4)ae,oe handled, reduce '__' to '_', remove '_' at start and end. 
+4)ae,oe handled, reduce '__' to '_', remove '_' at start and end.
+5)push dates to the from and make them look more like YYYY-MM-DD
 
 ## check_jpegs.py & check_jpegs_full.py
 

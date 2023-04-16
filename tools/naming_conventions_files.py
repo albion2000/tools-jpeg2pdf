@@ -41,6 +41,9 @@ def accentsTidyP2(s) :
 # remove too many '_'
 	r = re.sub("__","_",r);
 	r = re.sub("__","_",r);
+# remove too many '--'
+	r = re.sub("--","-",r);
+	r = re.sub("--","-",r);	
 # remove too many '_-_'
 	r = re.sub("_-_","-",r);
 # remove '_' at start or end of dir name in the chain of subs (_sub1_\_sub2_\_sub3_) => (sub1\sub2\sub3)
