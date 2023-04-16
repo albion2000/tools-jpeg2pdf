@@ -18,7 +18,7 @@ In short :
 
 Read the installation_instructions.txt and readme_naming_conventions.txt
 
-Copy 'naming_conventions.py' & 'naming_conventions_do_rename.py' to the root directory of your file tree.
+Copy 'naming_conventions_files.py', 'naming_conventions_do_rename_files' & 'naming_conventions_do_rename.py' to the root directory of your file tree.
 
 The primary purpose of this tool is to ensure a longer lifetime to a directory tree by reducing the risk of it being corrupted over transfers between file systems.
 
@@ -34,7 +34,7 @@ mode for renaming effectively directories:
 mode for renaming effectively files:
   * naming_conventions_do_rename_files.py
 
-you can also use naming_conventions_files on the command line to do everythong with more options
+you can also use naming_conventions_files on the command line to do everything with more options
 syntax for simulation, with no effect on the name of the files or directories, for validation purposes:
 naming_conventions_files.py
 naming_conventions_files.py -t
@@ -54,11 +54,11 @@ naming_conventions_do_rename_files is equivalent to a call to naming_conventions
 The use of this tool is optional, and would be typically used before using scandir2pdf.py
 
 Rules followed : 
-1)tries to convert as best as it can anything in ascii characters
-2)go lower case
-3)anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
-4)ae,oe handled, reduce '__' to '_', remove '_' at start and end.
-5)push dates to the from and make them look more like YYYY-MM-DD
+  * tries to convert as best as it can anything in ascii characters
+  * go lower case
+  * anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
+  * ae,oe handled, reduce '__' to '_', remove '_' at start and end.
+  * push dates to the from and make them look more like YYYY-MM-DD_
 
 ## check_jpegs.py & check_jpegs_full.py
 
