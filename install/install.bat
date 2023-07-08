@@ -1,10 +1,10 @@
 rem This is to do once after the python installation
-pip install img2pdf
+pip install pillow=8.0.1
+pip install PyPDF2==1.26.0
+pip install img2pdf==0.4.4
 pip install unidecode
-pip install pillow
-pip install PyPDF2
 
-pip install wand
+pip install wand==0.6.7
 
 rem wand is needed only for the tools scandirpdf2cover, scandirpdf2jpg and scanditpdf2png that extract images from pdfs
 rem wand requires ghostscript to be installed (the pc windows version, not the python version) install the 64bit if you use python 64bits

@@ -309,7 +309,7 @@ def subs_dates(s) :
 
 
 logFileName = 'logrename.txt'
-logFile = open(logFileName,'a')
+logFile = open(logFileName,'a', encoding="utf-8")
 
 def printandlog(str):
 	print(str)
