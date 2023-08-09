@@ -34,6 +34,16 @@ install.bat
 in directory install
 
 Messages like "Requirement already satisfied" are also OK
+
+
+After running install.bat, Additional installations may still be required, depending on your needs !
+The tools like scandirpdf2cover, scandirpdf2jpg and scanditpdf2png that extract images from pdfs make use of the installed wand python library.
+But that is not enough.
+wand requires ghostscript to be installed (the pc windows version, not the python version) install the 64bit if you use python 64bits
+https://ghostscript.com/releases/gsdnld.html
+wand requires also imageMagick to be installed.  (the pc windows version, not the python version) install the 64bit if you installed python 64bits
+https://www.imagemagick.org/script/download.php#windows
+
 =========================================================================
 
 FRENCH
@@ -41,8 +51,7 @@ FRENCH
 environnement requis
 PC équipé d'une version de windows ultérieure à Windows XP. MAC OSX 10.6 ou ultérieur. PC Linux. 
 
-recommandé : 
-processeur 64 bits.
+recommandé : processeur 64 bits.
 
 Certains outils, ont été écrit en langage de script Python.
 
@@ -66,4 +75,9 @@ double cliquez sur le fichier install.bat dans le répertoire install  (connexion
 Attendez la fin du processus de téléchargement et installation (complètement automatique)
 Si vous avez le message "Requirement already satisfied", cela signifie que ce module est déjà installé. C'est aussi OK.
 
-
+Après avoir lancé install.bat, d'autres modules sont necessaire si vous voulez utiliser
+scandirpdf2cover, scandirpdf2jpg ou scanditpdf2png qui extraient des images de pdfs.
+ghostscript doit être installé (version pc windows) en version 64bit si vous utilisez python 64bits
+https://ghostscript.com/releases/gsdnld.html
+imageMagick doit être installé (version pc windows) en version 64bit si vous utilisez python 64bits
+https://www.imagemagick.org/script/download.php#windows
