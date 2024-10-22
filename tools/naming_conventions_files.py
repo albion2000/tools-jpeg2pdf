@@ -80,7 +80,7 @@ def accentsTidyP1(s) :
 # tries to convert as best as it can anything in ascii characters (special case : '°' becomes 'deg' !)
 	r = unidecode.unidecode(s)
 # go lower case
-	r = r.lower();
+#	r = r.lower();
 # æ becomes ae
 	r = re.sub("/æ/g","ae",r);
 # œ becomes oe
@@ -96,7 +96,7 @@ def accentsTidy(s) :
 
 	r = accentsTidyP1(s);
 # anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
-	r = re.sub("[^-\d\w\\\/]",'_',r);
+	r = re.sub("[^-()#\d\w\\\/]",'_',r);
 	return accentsTidyP2(r);
 
 

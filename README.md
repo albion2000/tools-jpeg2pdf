@@ -36,8 +36,9 @@ mode for renaming effectively files:
 
 you can also use naming_conventions_files on the command line to do everything with more options
 syntax for simulation, with no effect on the name of the files or directories, for validation purposes:
-naming_conventions_files.py
-naming_conventions_files.py -t
+naming_conventions_files.py 
+
+or naming_conventions_files.py -t
 
 syntax for renaming effectively the files:
 naming_conventions_files.py -w
@@ -49,16 +50,17 @@ additional option -t to use if one want dates to be moved to the front of the na
 all 3 options can be combined and all combinations are meaningful
 
 naming_conventions_do_rename is equivalent to a call to naming_conventions_files -d
+
 naming_conventions_do_rename_files is equivalent to a call to naming_conventions_files -w
 
-The use of this tool is optional, and would be typically used before using scandir2pdf.py
+The use of this tool would be typically used before using scandir2pdf.py
 
 Rules followed : 
   * tries to convert as best as it can anything in ascii characters
-  * go lower case
-  * anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
-  * ae,oe handled, reduce '__' to '_', remove '_' at start and end.
-  * push dates to the from and make them look more like YYYY-MM-DD_
+  * go lower case (not enforced anymore from releases > v1.2.2)
+  * anything that is neither a letter nor a number nor a \ '-' '(' ')' '#' is replaced by _
+  * ae,oe handled, reduce '__' to a single underscore, remove underscores at start and end.
+  * push dates to the front and make them look more like YYYY-MM-DD_
 
 ## check_jpegs.py & check_jpegs_full.py
 
@@ -139,6 +141,18 @@ The png is placed in the same directory as the pdf.
 
 Only that tool makes use of the wand python library
 
+## scandirpdf2coverjpg.py
+
+Read the installation_instructions.txt for the prerequisites
+
+It recursively parses sub directories for .pdf files 
+
+For each .pdf, it generates a jpg file preview of the cover page.
+The jpg is placed in the same directory as the pdf.
+
+Only that tool makes use of the wand python library
+
+
 ## scandirpdf2jpg.py & scandirpdf2png.py
 
 Is the reverse operation of scandir2pdf, the images created will be named like page_0001.jpg ...
@@ -146,6 +160,7 @@ Is the reverse operation of scandir2pdf, the images created will be named like p
 ## scandirpdf2noocr.py
 
 Recursively remove all the ocr text from the pdfs. Can be needed if your ocr sw happens to append its generated text to the one already present.
+This tool should only be used on pdf files that were the result of scans and were processed through OCR. Running this tool on a pdf that is a printout of .doc file will totally remove the text !
 
 ## scandirjpg2pdf.py
 

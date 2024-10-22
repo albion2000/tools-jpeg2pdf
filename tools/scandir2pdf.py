@@ -3,7 +3,7 @@ import os
 import img2pdf
 import sys
 
-logFileName = 'logParse.txt'
+logFileName = 'logParse.log'
 
 logFile = open(logFileName,'a')
 

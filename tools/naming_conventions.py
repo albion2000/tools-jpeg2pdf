@@ -8,6 +8,7 @@ import os
 import sys, getopt
 import unidecode
 import unicodedata
+import codecs
 
 # rules 
 
@@ -43,13 +44,13 @@ def accentsTidy(s) :
 	r = unidecode.unidecode(s)
 	
 # go lower case
-	r = r.lower();
+#	r = r.lower();
 # æ becomes ae
 	r = re.sub("/æ/g","ae",r);
 # œ becomes oe
 	r = re.sub("/œ/g","oe",r);
 # anything that is neither a letter nor a number nor a \ nor '-' is replaced by _
-	r = re.sub("[^-\d\w\\\/]",'_',r);
+	r = re.sub("[^-()#\d\w\\\/]",'_',r);
 # N° decomes n_
 	r = re.sub("ndeg","#",r);
 # remove too many '_'
@@ -92,7 +93,9 @@ def accentsTidy(s) :
 	return r;
 
 logFileName = 'logRename.txt'
-logFile = open(logFileName,'a')
+#logFile = open(logFileName,'a')
+logFile = codecs.open(logFileName,encoding='utf-8',mode = 'a')
+
 
 def printandlog(str):
 	print(str)
@@ -137,7 +140,7 @@ def process(do_rename) :
 					sys.stdout.flush()
 				else :
 					nbChanges = nbChanges + 1 
-					printandlog("\n"+dirName+"\\"+stripped+"  <--  "+dirName+"\\"+ridoffbadchars(subdir)); 
+					printandlog("\n"+dirName+"\\"+stripped+"  <--|||  "+dirName+"\\"+ridoffbadchars(subdir)); 
 	else:
 # Real Deal, we parse all the dirs using path from the rootDir, one by one, in O(n2)... Slow, not smart, but small code.
 		found = 1
