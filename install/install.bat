@@ -1,5 +1,5 @@
 echo This is to do only once after the python installation
-pip install pillow=8.0.1
+pip install pillow==8.0.1
 pip install PyPDF2==1.26.0
 pip install img2pdf==0.4.4
 pip install unidecode
